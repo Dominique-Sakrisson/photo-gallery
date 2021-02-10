@@ -1,9 +1,10 @@
-import React, { Component } from 'react'
+import React from 'react'
 import logo from './logo.svg';
 import './App.css';
 import CoolHeader from './header.js'
 import images from './data.js' 
 import ImageList from './ImageList.js'
+import ImageItem from './ImageItem.js'
 
 export default class App extends React.Component {
   state = {
@@ -37,17 +38,9 @@ export default class App extends React.Component {
       return false;
     })
 
-    const imagesInView = filteredImages.map(image => 
-      <ImageList 
-        key={image.title}
-        image={image} />
-    );
-    const imagesInViewHorns = filteredHorns.map(image => 
-      <ImageList 
-        key={image.title}
-        image={image} />
-    );
-        console.log(this.state.myFavorite);
+    const imagesBlah = images.map((image) => {
+       return <ImageItem key={image.title} image={image}/>
+    }) 
       
     return(
       <>
@@ -95,7 +88,7 @@ export default class App extends React.Component {
         </div>
 
         <div className='image-view'>
-          {imagesInViewHorns}
+          <ImageList images={filteredHorns}/>
         </div> 
       </>
     );
