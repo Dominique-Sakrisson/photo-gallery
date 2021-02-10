@@ -133,7 +133,8 @@ const images = [
       title: "Happy Jackson's Chameleon",
       description: "These are really common in Hawaii",
       keyword: "chameleon",
-      horns: 2
+      horns: 2,
+      myFavorite: true
     },
     {
       url:

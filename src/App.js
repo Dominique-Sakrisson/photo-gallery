@@ -12,6 +12,9 @@ export default class App extends React.Component {
   }
 
   render(){
+
+    const uniqueCategory = Array.from(new Set(images.map(image => image.keyword)));
+
     const filteredImages = images.filter((image) => {
       if(!this.state.keyword) return true; 
     
@@ -22,12 +25,29 @@ export default class App extends React.Component {
       return false;
     })
 
+    const filteredHorns = filteredImages.filter((image) => {
+
+      if(!this.state.horns) return true; 
+    
+      if(this.state.horns === 'all') return true;
+    
+      if(image.horns.toString() === this.state.horns) return true;
+      console.log(image.horns, this.state.horns);
+
+      return false;
+    })
+
     const imagesInView = filteredImages.map(image => 
       <ImageList 
         key={image.title}
         image={image} />
-        );
-        console.log(imagesInView);
+    );
+    const imagesInViewHorns = filteredHorns.map(image => 
+      <ImageList 
+        key={image.title}
+        image={image} />
+    );
+        console.log(this.state.myFavorite);
       
     return(
       <>
@@ -53,10 +73,10 @@ export default class App extends React.Component {
               <option value='unicorn'>Unicorn</option>
               <option value='unilego'>Unilego</option>
             </select>
-            <button>Show all Pictures</button>
+            
           </form>
 
-          {/* <form>
+           <form>
             Sort images by horn amount <br/>
             <select value={this.state.horns} 
             onChange={(e) =>{
@@ -69,13 +89,13 @@ export default class App extends React.Component {
               <option value='2'>Dual Tipped</option>
               <option value='3'>Triple Threat</option>
               <option value='100'>100 ways to die</option>
-            </select>
+            </select><br/>
             <button>Show all Pictures</button>
-          </form> */}
+          </form> 
         </div>
 
         <div className='image-view'>
-          {imagesInView}
+          {imagesInViewHorns}
         </div> 
       </>
     );
