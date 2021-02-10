@@ -36,3 +36,42 @@
     transform: rotate(360deg);
   }
 }
+body{
+  background-color: aquamarine;
+  text-align: center;
+}
+.header-text{
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 40px ;
+  padding-bottom: 40px;
+  font-size: 1.5rem;
+  background-color: azure;
+}
+.image-sorter{
+  
+  background-color: aqua;
+  border-radius: 10px;
+  border: inset 3px black;
+  width: 90%;
+  margin: 0 auto 10px auto;
+}
+.image-sorter button{
+  padding: 5px;
+  margin: 10px;
+}
+.image-sorter select{
+  padding: 5px;
+  width: 200px;
+}
+.image-view{
+  height: 100%;
+}
+
+img{
+  padding: 10px;
+  margin: 10px;
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+}
